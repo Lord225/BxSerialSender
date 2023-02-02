@@ -18,6 +18,9 @@ public final class BxSerialSender extends JavaPlugin {
     @Override
     public void onEnable() {
         System.out.println("BxSerialSender is enabled!");
+
+        var plugin = this;
+
         Runnable listener = new Runnable() {
             private final Server server = getServer();
 
@@ -46,7 +49,10 @@ public final class BxSerialSender extends JavaPlugin {
                                                             for (int i = 0; i < numRead; i++) {
                                                                 if (readBuffer[i] == command) {
                                                                     System.out.println("Executing command " + callback);
-                                                                    server.dispatchCommand(server.getConsoleSender(), callback);
+                                                                    server.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
+                                                                        server.dispatchCommand(server.getConsoleSender(), callback);
+                                                                    });
+
                                                                 }
                                                             }
                                                         }
