@@ -1,6 +1,6 @@
 name: BxSerialSender
 version: '${version}'
-main: lord225.bxserialsender.BxSerialSender
+main: lord225.bxserialsender.BxUDPSender
 api-version: 1.18
 authors: [ Lord225, BrzechiX ]
 commands:
