@@ -4,13 +4,13 @@ main: lord225.bxserialsender.BxUDPSender
 api-version: 1.18
 authors: [ Lord225, BrzechiX ]
 commands:
-  serialsend:
-    description: This command is used to open a serial communication port on a computer. The first argument, COM6, specifies the name of the port to open. The second argument, 9600, specifies the baud rate at which the port should operate.
-  serialopen:
-    description: This command is used to close a previously opened serial communication port. The argument, COM6, specifies the name of the port to close.
-  serialclose:
-    description: This command is used to send data over a previously opened serial communication port. The first argument, COM6, specifies the name of the port to send data to. The second argument, <data>, is the data that should be sent over the port.
-  serialaddcallback:
-    description: This command is used to add a callback to a previously opened serial communication port. The first argument, COM6, specifies the name of the port to add the callback to. The second argument <BYTE> is byte that this callback will fire with, and <callback>, is the name of the callback to add to the port.
-  serialclearcallbacks:
-    description: This command is used to clear all callbacks from a previously opened serial communication port. The argument, COM6, specifies the name of the port to clear the callbacks from.
+  updsend:
+    description: Send data over a UDP socket. The first argument, <address>, specifies the address to send the data to. The second argument, <port>, specifies the port number to send the data on. The remaining arguments represent the data to be sent.
+  udpopen:
+    description: Open a UDP socket for communication. The first argument, <address>, specifies the address to bind the socket to. The second argument, <port>, specifies the port number to bind the socket to.
+  udpclose:
+    description: Close a previously opened UDP socket. The argument, <address>, specifies the address of the socket to close.
+  udpaddcallback:
+    description: Add a callback to a previously opened UDP socket. The first argument, <address>, specifies the address of the socket to add the callback to. The second argument, <byte>, is the byte that triggers the callback. The remaining arguments, <command>, represent the command to execute when the callback is triggered.
+  udpclearcallbacks:
+    description: Clear all callbacks from a previously opened UDP socket. The argument, <address>, specifies the address of the socket to clear the callbacks from.
